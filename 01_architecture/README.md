@@ -1,7 +1,9 @@
 
-Flutter is built using a layered architecture where each layer is dependent on its underlying layer.
+# Architecture
 
-Example:
+**Flutter is built using a layered architecture where each layer is dependent on its underlying layer.**
+
+**Example**:
 
 ![alt text](https://flutter.dev/images/arch-overview/archdiagram.png)
 
