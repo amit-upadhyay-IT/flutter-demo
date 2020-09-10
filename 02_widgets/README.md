@@ -32,12 +32,9 @@ Widget tree is a structure that represents how our widgets are organized. Let us
 
  **Container**
     |
-    |
   **Center**
     |
-    |
   **Text**
-    |
     |
  **TextStyle**
  
@@ -48,3 +45,51 @@ Widget tree is a structure that represents how our widgets are organized. Let us
 - Text: The Text widget displays a string of text with single style. The style argument is optional. When omitted, the text will use the style from the closest enclosing DefaultTextStyle.
 
 - TextStyle: This helps us specify the text style. This is immutable style.
+
+
+Another sample app:
+
+```dart
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Hi There!',
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("App bar"),
+        ),
+        body: Center(
+            child: Text(
+              'what happened with Kangana was wrong in my opinion!',
+            )
+        ),
+      ),
+    );
+  }
+}
+```
+
+The widget tree for the above app would look like: 
+
+
+        MaterialApp
+            |
+        Scaffold
+        /       \
+    AppBar      Center
+                    |
+                  Text
+
+- MaterialApp: A convenience widget that wraps a number of widgets that are commonly required for material design applications.
+
+- Scaffold: it provides a default banner, background color, and has API for adding drawers, snack bars, and bottom sheets.
+
+- AppBar: Top title bar which usually contains app title.
+
+
+## StatelessWidget
+Till now, each of the widget has implemented `StatelessWidget`, this means the widget is not maintaining any state. Note that the StatelessWidget only requires a single method build to be implemented in its derived class.
