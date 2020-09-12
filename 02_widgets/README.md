@@ -30,13 +30,13 @@ class MyApp extends StatelessWidget {
 
 Widget tree is a structure that represents how our widgets are organized. Let us look at the widget tree for this application:
 
-     **Container**
+     Container
         |
-      **Center**
+      Center
         |
-      **Text**
+      Text
         |
-     **TextStyle**
+     TextStyle
  
 - Container: You can use `Container` widget class when you wish to customize properties like padding, margins, borders, or background color  of the child widgets.
 
@@ -116,6 +116,8 @@ Text('Hi there!', style: TextStyle(fontWeight: FontWeight.bold));
 
 - **Icon**: Icon widget is used to display a glyph from a font described in IconData class.
 
+## categorization of widgets
+
 **There can be several categorization of widgets, for example**
 - **visible widget** vs **invisible widget(also known as layout widgets)**
 - **Stateless widget** vs **Stateful widget**
@@ -123,10 +125,10 @@ Text('Hi there!', style: TextStyle(fontWeight: FontWeight.bold));
 - **Material widget** vs **non-material widget** (the fact that makes it flexible is that either of the widget can be used inside other type widget)
 - Platform specific widgets (**material widgets** vs **Cupertino widgets**), this is discussed above.
 
-### Visible Widget:
+## Visible Widget:
 The UI elements which are visible in the application.
 
-### Invisible Widget/Layout widget:
+## Invisible Widget/Layout widget:
 The positioning of the visible widget or containers of the visible widget are known as Invisible widget.
 
 All layout widgets have either of the following:
