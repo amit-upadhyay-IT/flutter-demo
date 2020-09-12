@@ -58,7 +58,7 @@ class MyButton extends StatelessWidget {
 ```
 The above stateless widget when used inside any of the `MaterialApp` widget or `Scaffold` widget, then it would look something like this:
 
-![alt text](./asset/button_image.jpeg)
+![alt text](assets/button_image.jpeg)
 
 However, we can always use the already provided widgets for button. Eg: `RaisedButton`
 ```dart
@@ -74,11 +74,42 @@ RaisedButton(
 )
 ```
 Which would look like:
-![alt text](./asset/raised_button.jpeg)
+
+![alt text](assets/raised_button.jpeg)
 
 There are many other widget classes already provided by flutter framework.
 
-Now, coming to the `MyButton` example, there is a `Container` widget acting as the layout widget. We have used its `padding` property to arrange its child widget by the given padding, here padding is provided by EdgeInsets class.
+Now, coming to the `MyButton` example, there is a `Container` widget acting as the layout widget. **We have used its `padding` property to arrange its child widget by the given padding, here padding is provided by EdgeInsets class.**
 
-To understand padding you can see this:
+To understand **padding** you can see this:
+
 ![alt text](https://flutter.dev/assets/ui/layout/margin-padding-border-9616dd0d7af45b95e6fcface25cd933b6b4a0fda51c1ab1bb9287bc8ed92c356.png)
+
+## Few important layout widgets for single child layout widgets:
+- Padding
+- Align: Align its child widget within itself using the value of `alignment` property.
+    eg:
+    ```dart
+    Align(
+        alignment: FractionalOffset(0.2, 0.6), child: Container(
+            height: 40.0, width: 40.0, color: Colors.red,
+        ), 
+    ),
+    ```
+    - FractionalOffset(1.0, 0.0) represents the top right. i.e. `x` axis is at `0` and `y` axis is at `1`.
+    - FractionalOffset(0.0, 1.0) represents the bottom left.
+
+
+## Multi-child layout widgets
+
+A given widget will have more than one child widgets and the layout of each widget is unique.
+
+For example, Row widget allows the laying out of its children in horizontal direction, whereas Column widget allows laying out of its children in vertical direction.
+
+Some of the frequently used widgets in this section:
+- Row
+- Column
+- Stack
+- ListView
+- etc...
+
