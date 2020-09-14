@@ -4,6 +4,7 @@
  */
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:quiz_app/resultwidget.dart';
 
 class QuestionAndOptions {
   String question;
@@ -25,7 +26,7 @@ List<QuestionAndOptions> getQuestionAndOptions() {
   List<QuestionAndOptions> res = new List();
   res.add(QuestionAndOptions("question1", ["option1_1", "option1_2"], "option1_2"));
   res.add(QuestionAndOptions("question2", ["option2_1", "option2_2"], "option2_2"));
-  res.add(QuestionAndOptions("question3", ["option3_1", "option3_2"], "option3_1"));
+  res.add(QuestionAndOptions("question3", ["option3_1", "option3_2"], "option3_2"));
   return res;
 }
 
@@ -42,6 +43,7 @@ class QuestionBodyWidget extends StatefulWidget {
 class QuestionBodyState extends State<QuestionBodyWidget> {
 
   int questionIndex = 0;
+  int score = 0;
 
   List<QuestionAndOptions> questionsList = getQuestionAndOptions();
 
@@ -53,7 +55,9 @@ class QuestionBodyState extends State<QuestionBodyWidget> {
     for (String option in options) {
       optionsWidgets.add(Card(
         child: FlatButton(
-          onPressed: _incrementQuestionCount,
+          onPressed: () => {
+            _incrementQuestionCount(option)
+          },
           child: Text(
             option,
             style: TextStyle(
@@ -67,10 +71,14 @@ class QuestionBodyState extends State<QuestionBodyWidget> {
     return optionsWidgets;
   }
 
-  void _incrementQuestionCount() {
+  void _incrementQuestionCount(String optionSelected) {
+    if (optionSelected == questionsList[questionIndex].correctOption) score++;
     if (questionIndex+2 > questionsList.length) {
       print("No more questions");
       // display results
+      Navigator.push(context, MaterialPageRoute(
+        builder: (context) => ResultWidget(score: score.toString() ),
+      ));
     } else {
       setState(() {
         questionIndex++;
